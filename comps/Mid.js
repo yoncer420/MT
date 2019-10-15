@@ -1,49 +1,49 @@
 import React, {Component} from 'react';
+import {useState} from 'react';
 import {View, Text, Picker} from 'react-native';
 
-export default class Mid extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        state: ''
-      }
-    }
-    render() {
-        return (
-          <View style={{ 
-            backgroundColor: 'white',
-            justifyContent:'center',}}>
+// export default class Mid extends Component {
+//     constructor(props) {
+//       super(props);
+//       this.state = {
+//         state: ''
+//       }
+//     }
+//     render() {
+//         return (
+//           <View style={{ 
+//             justifyContent:'center',}}>
             
-            <Picker
-              style={{width: 150, height: 30}}
-              selectedValue={this.state.backgroundColor}
-              onValueChange={(itemValue, itemIndex) => this.setState({backgroundColor: itemValue})}>
+//             <Picker
+//               style={{width: 150, height: 30}}
+//               selectedValue={this.state.backgroundColor}
+//               onValueChange={(itemValue, itemIndex) => this.setState({backgroundColor: itemValue})}>
 
-              <Picker.Item label="Color1" value="yellow" />
-              <Picker.Item label="Color2" value="red" />
-            </Picker>
-          </View>
-        );
-      }
-    }
+//               <Picker.Item label="Color1" value="yellow" />
+//               <Picker.Item label="Color2" value="red" />
+//             </Picker>
+//           </View>
+//         );
+//       }
+//     }
     
 
 
-// function Mid(){
-//     super(props);
-//     this.state = {
-//         language:'java'
-//     };
-//      return(
-//         <View style={{justifyContent: 'center', alignItems:'center', backgroundColor:'black'}}>
-//             <Picker
-//                 selectedValue={this.state.language}
-//                 style={{height: 50, width: 100}}
-//                 onValueChange={(itemValue, itemIndex) =>this.setState({language: itemValue})}
-//             >
-//                 <Picker.Item label="Java" value="java" />
-//                 <Picker.Item label="JavaScript" value="js" />
-//             </Picker>
-//         </View>
-// )}
-// export default Mid;
+function Mid(){
+    const [backgroundColor, onColorChange] = useState(backgroundColor);
+  
+
+     return(
+       <View >
+            <Picker
+                // selectedValue={this.state.itemValue}
+                 style={{height: 50, width: 100}}
+                 onValueChange={(backgroundColor, onColorChange) =>this.setState({backgroundColor})}
+                 onColorChange={backgroundColor => onColorChange(backgroundColor.value)}
+             >
+                 <Picker.Item label="Blue" value='blue'/>
+                 <Picker.Item label="Red" value='red' />
+             </Picker>
+       </View>
+ )}
+ export default Mid;
